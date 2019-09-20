@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="Public/Css/demo.css">
+	    <link rel="stylesheet" type="text/css" href="Public/Css/amazeui.min.css">
+	    <link rel="stylesheet" type="text/css" href="Public/Css/layui.css">
+		<link rel="stylesheet" type="text/css" href="Public/Css/admin.css">
+		<link rel="stylesheet" type="text/css" href="Public/Css/global.css">
+	</head>
+	<body ng-app="AddVipModule" ng-cloak>
+		<div class="am-cf admin-main" style="padding-top: 0px" ng-controller="AddVipController as AddVip">
+		<!-- content start -->
+		<div class="admin-content">
+			<div class="admin-content-body">
+				<div class="am-g">
+					<form class="am-form am-form-horizontal" method="post" style="padding-top:30px;" data-am-validator>
+					    <!-- VIP等级名称 -->
+						<div class="am-form-group">
+							<label for="vip-name" class="am-u-sm-3 am-form-label">VIP等级名称： </label>
+							<div class="am-u-sm-9">
+								<input type="text" id="vipname"  placeholder="请输入VIP等级名称" name="vip-name" ng-model="AddVip.vipname" maxlength="10">
+								<small>输入VIP等级名称(最多10个字符)。</small>
+							</div>
+						</div>
+						<!-- VIP时效 -->
+						<div class="am-form-group">
+							<label for="vip-time" class="am-u-sm-3 am-form-label">时效/天： </label>
+							<div class="am-u-sm-9">
+								<input type="number" id="viptime"  placeholder="请输入VIP时效" name="vip-time" ng-model="AddVip.viptime" maxlength="5">
+								<small>输入VIP时效(最多5个字符)。</small>
+							</div>
+						</div>
+						<!-- VIP费用 -->
+						<div class="am-form-group">
+							<label for="vip-cost" class="am-u-sm-3 am-form-label">费用/元： </label>
+							<div class="am-u-sm-9">
+								<input type="number" id="vipcost"  placeholder="请输入VIP费用" name="vip-cost" ng-model="AddVip.vipcost" maxlength="10">
+								<small>输入VIP费用(最多10个字符)。</small>
+							</div>
+						</div>
+						<!-- VIP类型 -->
+					    <div class="am-form-group">
+						    <label for="doc-select-1" class="am-u-sm-3 am-form-label">类型：</label>
+						    <div class="am-u-sm-9">
+						        <select id="doc-select-1" ng-model='AddVip.viptype'>
+						            <option value="">请选择VIP类型</option>
+						            <option value="白银会员">白银会员</option>
+						            <option value="黄金会员">黄金会员</option>
+						        </select>
+						        <small>选择VIP类型。</small>
+						    </div>
+					    </div>
+						<!-- 操作按钮 -->
+						<div class="am-form-group">
+							<div class="am-u-sm-9 am-u-sm-push-5">
+								<a class="am-btn am-btn-success" ng-click="AddVip.addVip()" ng-if='AddVip.vipid==""'/>添加</a>
+								<a class="am-btn am-btn-success" ng-click="AddVip.editVip()" ng-if='AddVip.vipid!=""'/>修改</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="Public/Js/angular.js"></script>
+	<script type="text/javascript" src="Public/Js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="Public/Js/plugs.js"></script>
+	<script type="text/javascript" src="Public/Js/vipAdd.js"></script>
+	</body>
+</html>

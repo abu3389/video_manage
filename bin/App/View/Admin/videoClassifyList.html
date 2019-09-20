@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="Public/Css/demo.css">
+	    <link rel="stylesheet" type="text/css" href="Public/Css/amazeui.min.css">
+	    <link rel="stylesheet" type="text/css" href="Public/Css/layui.css">
+		<link rel="stylesheet" type="text/css" href="Public/Css/admin.css">
+		<link rel="stylesheet" type="text/css" href="Public/Css/global.css">
+		<link rel="stylesheet" type="text/css" href="Public/Css/zTreeStyle.css" >
+	</head>
+	<body ng-app="videoClassifyModule" ng-cloak>
+		<div class="am-cf" style="padding-top: 0px" ng-controller="videoClassController as videoClass">
+		<div class="am-cf am-padding am-padding-bottom-0">
+			<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">分类管理</strong><small></small></div>
+		</div>
+		<!-- content start -->
+		<div class="am-g">
+			<form class="am-form am-form-horizontal am-u-sm-12" method="post" style="padding-top:30px;" data-am-validator>
+			    <!-- 分类树状菜单 -->
+				<div class="am-form-group am-inline-block am-u-sm-4">
+						<ul id="treeDemo" class="ztree am-u-sm-12"></ul>
+				</div>
+				<!-- 分类编辑框 -->
+				<div class="am-form-group am-inline-block am-u-sm-4 am-u-end">
+					<div class="am-form-group am-u-sm-12">
+						<label for="classify_name" class="am-u-sm-4 am-form-label">分类名： </label>
+						<div class="am-u-sm-8">
+							<input type="text" id="username"  placeholder="请输入分类名" name="classify_name" ng-model="videoClass.classifyname">
+							<small>输入分类名(最多10个字符)。</small>
+						</div>
+					</div>
+					<div class="am-form-group am-u-sm-12">
+						    <label for="doc-select-1" class="am-u-sm-4 am-form-label">分类级别：</label>
+					    <div class="am-u-sm-8">
+					        <select id="doc-select-1" ng-model='videoClass.rankVal' ng-change='videoClass.rankChange()'>
+					            <option value="">请选择分类级别</option>
+					            <option value="1">一级分类</option>
+					            <option value="2">二级分类</option>
+					        </select>
+					    </div>  
+					</div>
+					<div class="am-form-group am-u-sm-12">
+						    <label for="doc-select-1" class="am-u-sm-4 am-form-label">上级分类：</label>
+					    <div class="am-u-sm-8">
+					        <select id="doc-select-1" ng-model='videoClass.parentVal' ng-change='videoClass.parentChange()'>
+					            <option value="">请选择上级分类</option>
+					            <option ng-repeat="(key,item) in videoClass.parentList" value="{{item.id}}">{{item.name}}</option>
+					        </select>
+					    </div>  
+					</div>
+					<div class="am-form-group am-u-sm-12">
+						    <label for="doc-select-1" class="am-u-sm-4 am-form-label">前置分类：</label>
+					    <div class="am-u-sm-8">
+					        <select id="doc-select-1" ng-model='videoClass.brotherVal' id="test">
+					            <option value="">请选择前置分类</option>
+					            <option ng-repeat="(key,item) in videoClass.brotherList" value="{{item.id}}">{{item.name}}</option>
+					        </select>
+					    </div>  
+					</div>
+				</div>
+			</form>
+			<!-- 操作按钮 -->
+			<div class="am-form-group">
+				<div class="am-u-sm-12 am-u-sm-push-1">
+					<a class="am-btn am-btn-success" ng-click='videoClass.addClassify()'/>添加分类</a>
+					<a class="am-btn am-btn-primary" ng-click='videoClass.delClassify()'/>删除（Ctrl多选）</a>
+					<a class="am-btn am-btn-warning" ng-click='videoClass.updateClassify()'/>修改</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="Public/Js/angular.js"></script>
+	<script type="text/javascript" src="Public/Js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="Public/Js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="Public/Js/jquery.ztree.excheck.js"></script>
+	<script type="text/javascript" src="Public/Js/plugs.js"></script>
+	<script type="text/javascript" src="Public/Js/videoClassifyList.js"></script>
+	</body>
+</html>

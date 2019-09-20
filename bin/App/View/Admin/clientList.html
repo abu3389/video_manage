@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>后台管理-客户管理</title>
+		<link rel="stylesheet" href="Public/Css/amazeui.min.css" />
+		<link rel="stylesheet" type="text/css" href="Public/Css/layui.css">
+		<link rel="stylesheet" href="Public/Css/admin.css" />
+		<link rel="stylesheet" type="text/css" href="Public/Css/global.css">
+	</head>
+
+	<body ng-app="clientListModule" ng-cloak>
+		<div class="admin-content-body" ng-controller="ClientListController as ClientList">
+			<div class="am-cf am-padding am-padding-bottom-0">
+				<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">客户管理</strong><small></small></div>
+			</div>
+
+			<hr>
+
+			<div class="am-g">
+				<div class="am-u-sm-12 am-u-md-6">
+<!-- 					<div class="am-btn-toolbar">
+						<div class="am-btn-group am-btn-group-xs">
+							<button type="button" class="am-btn am-btn-default" ng-click="ClientList.showBox('新增客户','','','index.php?m=Admin&c=ManageUser&a=clientAdd')"><span class="am-icon-plus"></span> 新增</button>
+						</div>
+					</div> -->
+				</div>
+				<div class="am-u-sm-12 am-u-md-3">
+					<div class="am-input-group am-input-group-sm">
+						<input type="text" class="am-form-field" placeholder="请输入关键词(多关键字用空格分隔)" ng-model='ClientList.keyword'>
+						<span class="am-input-group-btn">
+			            <button class="am-btn am-btn-success am-margin-horizontal-xs" type="button" ng-click='ClientList.getClientInfo(1)'>搜索</button>
+			            <a class="am-btn am-btn-default" href='index.php?m=Admin&c=ManageUser&a=clientList' target='right''/>显示全部</a>
+			            </span>
+					</div>
+				</div>
+			</div>
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<form class="am-form">
+						<table class="am-table am-table-striped am-table-hover table-main">
+							<thead>
+								<tr>
+									<th class="table-check"><input type="checkbox"></th>
+									<th class="table-id">ID</th>
+									<th class="table-title">用户名</th>
+									<th class="table-type">类型</th>
+									<th class="table-time">最近登录时间</th>
+									<th class="table-author am-hide-sm-only">创建时间</th>
+									<th class="table-set">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="(key,item) in ClientList.clientlist">
+									<td><input type="checkbox"></td>
+									<td>{{item.user_id}}</td>
+									<td>
+										<a href="#">{{item.user_name}}</a>
+									</td>
+									<td ng-if='item.vip_type != null'>{{item.vip_type}}</td>
+									<td ng-if='item.vip_type == null'>普通会员</td>
+									<td class="am-hide-sm-only">{{item.last_time}}</td>
+									<td class="am-hide-sm-only">{{item.reg_time}}</td>
+									<td>
+										<div class="am-btn-toolbar">
+											<div class="am-btn-group am-btn-group-xs">
+<!-- 												<button class="am-btn am-btn-default am-btn-xs am-text-success am-margin-horizontal-xs" ng-click="ClientList.showBox('编辑用户','','','index.php?m=Admin&c=ManageUser&a=clientAdd',item)"><span class="am-icon-pencil-square-o"></span> 编辑</button> -->
+												<button class="am-btn am-btn-default am-btn-xs am-margin-horizontal-xs am-text-warning" ng-click='ClientList.reSetClientPwd(item.user_id)'><span class="am-icon-refresh"></span> 重置密码</button>
+												<button class="am-btn am-btn-default am-btn-xs am-margin-horizontal-xs am-text-secondary am-hide-sm-only" ng-click='ClientList.setClientState(item.user_id,item.user_state)'>
+												<span class="am-icon-lock" ng-if='item.user_state=="解锁"'></span>
+												<span class="am-icon-unlock" ng-if='item.user_state=="锁定"'>
+											    </span> {{item.user_state}}</button>
+											</div>
+										</div>
+									</td>
+								</tr>					
+							</tbody>
+						</table>
+						<div class="am-cf">共 {{ClientList.listnum}} 条记录<div class="am-fr"><ul class="am-pagination " id="page"></ul></div></div>
+						<hr>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="Public/Js/angular.js"></script>
+	<script type="text/javascript" src="Public/Js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="Public/Js/plugs.js"></script>
+	<script type="text/javascript" src='Public/Js/global.js'></script>
+	<script type="text/javascript" src='Public/Js/clientList.js'></script>
+</html>

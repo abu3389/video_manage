@@ -1,0 +1,32 @@
+2018-08-20 03:13:40 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 03:13:40 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 03:56:14 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 03:56:14 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 04:24:47 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 04:24:47 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 09:10:46 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 09:10:46 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 09:43:40 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 09:43:40 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 09:44:37 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 09:44:37 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 09:44:41 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 09:44:41 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 09:44:52 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 09:44:52 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 11:33:29 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 11:33:29 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 11:35:15 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 11:35:15 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 11:35:16 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 11:35:16 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 11:35:18 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 11:35:18 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 11:43:42 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 11:43:42 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 18:28:47 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 18:28:47 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 18:35:41 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 18:35:41 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  
+2018-08-20 20:01:52 语句：select count(*) as sum from admin_vip  limit 1
+2018-08-20 20:01:52 语句：select * from admin_vip where vip_id>0  order by vip_id desc  limit 0,5  

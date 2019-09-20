@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>后台管理-报表统计</title>
+		<link rel="stylesheet" href="Public/Css/amazeui.min.css" />
+		<link rel="stylesheet" type="text/css" href="Public/Css/layui.css">
+		<link rel="stylesheet" href="Public/Css/admin.css" />
+		<link rel="stylesheet" type="text/css" href="Public/Css/global.css">
+	</head>
+
+	<body ng-app="CountModule" ng-cloak>
+		<div class="admin-content-body" ng-controller="CountController as Count">
+			<div class="am-cf am-padding am-padding-bottom-0" >
+				<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">报表统计</strong><small></small></div>
+			</div>
+
+			<hr>
+			<!-- 操作区域 -->
+			<div class="am-form-group am-cf">
+			    <div class="am-u-sm-12 am-u-md-4 am-input-group" >
+				  <div class="am-u-sm-6">
+				    <p><input type="text" class="am-form-field" placeholder="请选择起始月份" id="my-start-2" readonly/></p>
+				  </div>
+				  <div class="am-u-sm-6">
+				    <p><input type="text" class="am-form-field" placeholder="请选择结束月份" id="my-end-2" readonly /></p>
+				  </div>
+				</div>			
+			    <!-- 操作按钮 -->
+				<div class="am-u-sm-12 am-u-md-8 am-u-sm-push-1">
+					<a class="am-btn am-btn-success" ng-click='Count.getUserRegNum()'/>统计用户注册量</a>
+					<a class="am-btn am-btn-primary" ng-click='Count.getUserRegNum()'/>统计视频总播放次数</a>
+					<a class="am-btn am-btn-warning" ng-click='Count.getUserRegNum()'/>统计分类视频播放总次数</a>
+				</div>
+			</div>
+			<!-- 图表 -->
+			<div class="am-g am-margin-vertical-sm">
+				<div class="am-center am">
+				    <!-- 图表显示容器 -->
+                    <div id='ichart-render'></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="Public/Js/angular.js"></script>
+	<script type="text/javascript" src="Public/Js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="Public/Js/plugs.js"></script>
+	<script type="text/javascript" src='Public/Js/global.js'></script>
+	<script type="text/javascript" src='Public/Js/ichart.latest.min.js'></script>
+	<script type="text/javascript" src='Public/Js/amazeui.min.js'></script>
+	<script type="text/javascript" src='Public/Js/adminCount.js'></script>
+<script type="text/javascript">
+  $(function() {
+  	//获取时间戳
+    var nowTemp = new Date();
+    //获取日期
+    var nowDay = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0).valueOf();
+    //获取月份
+    var nowMoth = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), 1, 0, 0, 0, 0).valueOf();
+    //获取年份
+    var nowYear = new Date(nowTemp.getFullYear(), 0, 1, 0, 0, 0, 0).valueOf();
+    var $myStart2 = $('#my-start-2');
+    var $myEnd2 = $('#my-end-2');
+    //设置日历选择事件
+    var checkin = $myStart2.datepicker({
+      //设置禁用日期
+      onRender: function(date, viewMode) {
+        //默认 days 视图，与当前日期比较
+        var viewDate = nowDay;
+        //选择禁用的视图层
+        switch (viewMode) {
+          // moths 视图，与当前月份比较
+          case 1:
+            viewDate = nowMoth;
+            break;
+          // years 视图，与当前年份比较
+          case 2:
+            viewDate = nowYear;
+            break;
+        }
+
+        // return date.valueOf() < viewDate ? 'am-disabled' : '';
+      }
+    ,format:"yyyy-mm",viewMode:1,minViewMode:1}).on('changeDate.datepicker.amui', function(ev) {
+        var newDate = new Date(ev.date)
+        newDate.setDate(newDate.getDate() + 1);
+        checkout.setValue(newDate);
+        checkin.close();
+        $myEnd2[0].focus();
+    }).data('amui.datepicker');
+
+    var checkout = $('#my-end-2').datepicker({
+      onRender: function(date, viewMode) {
+        var inTime = checkin.date;
+        var inDay = inTime.valueOf();
+        var inMoth = new Date(inTime.getFullYear(), inTime.getMonth(), 1, 0, 0, 0, 0).valueOf();
+        var inYear = new Date(inTime.getFullYear(), 0, 1, 0, 0, 0, 0).valueOf();
+
+        // 默认 days 视图，与当前日期比较
+        viewDate = inDay;
+        switch (viewMode) {
+          // moths 视图，与当前月份比较
+          case 1:
+            viewDate = inMoth;
+            break;
+          // years 视图，与当前年份比较
+          case 2:
+            viewDate = inYear;
+            break;
+        }
+        return date.valueOf() < viewDate ? 'am-disabled' : '';
+      }
+    ,format:"yyyy-mm",viewMode:1,minViewMode:1}).on('changeDate.datepicker.amui', function(ev) {
+      checkout.close();
+    }).data('amui.datepicker');
+  });
+</script>
+</html>

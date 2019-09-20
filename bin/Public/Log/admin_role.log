@@ -1,0 +1,2 @@
+2018-08-20 20:01:50 语句：select count(*) as sum from admin_role  limit 1
+2018-08-20 20:01:50 语句：select * from admin_role where role_id>0  order by role_id desc  limit 0,5  

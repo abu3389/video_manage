@@ -1,0 +1,8 @@
+2018-08-20 09:39:35 语句：select count(*) as sum from admin_user  limit 1
+2018-08-20 09:39:35 语句：select admin_user.user_id,admin_user.user_name,admin_user.role_id,admin_user.user_state,admin_user.reg_time,admin_role.role_name from admin_user inner join admin_role on admin_user.role_id=admin_role.role_id   order by user_id desc  limit 0,5 
+2018-08-20 16:14:41 语句：select count(*) as sum from admin_user  limit 1
+2018-08-20 16:14:41 语句：select admin_user.user_id,admin_user.user_name,admin_user.role_id,admin_user.user_state,admin_user.reg_time,admin_role.role_name from admin_user inner join admin_role on admin_user.role_id=admin_role.role_id   order by user_id desc  limit 0,5 
+2018-08-20 20:01:50 语句：select count(*) as sum from admin_user  limit 1
+2018-08-20 20:01:50 语句：select admin_user.user_id,admin_user.user_name,admin_user.role_id,admin_user.user_state,admin_user.reg_time,admin_role.role_name from admin_user inner join admin_role on admin_user.role_id=admin_role.role_id   order by user_id desc  limit 0,5 
+2018-08-20 20:13:26 语句：select count(*) as sum from admin_user  limit 1
+2018-08-20 20:13:26 语句：select admin_user.user_id,admin_user.user_name,admin_user.role_id,admin_user.user_state,admin_user.reg_time,admin_role.role_name from admin_user inner join admin_role on admin_user.role_id=admin_role.role_id   order by user_id desc  limit 0,5 

@@ -1,0 +1,10 @@
+【入口文件】index.php
+【数据库文件】video_manage.sql
+【后台地址】http://127.0.0.1/bin/index.php?m=Admin&c=Index&a=admin
+            测试账号（超级管理员）：admin 123456
+【前台地址】http://127.0.0.1/index.php
+【数据库账号】默认账号：root 密码：root 数据库名：video_manage 数据库地址：127.0.0.1 数据库端口：3306
+【数据库配置文件】配置文件：./Frework/Core/MysqlDb.class.php
+【数据库环境】Mysql版本：5.5.53  数据库引擎：InnoDB 字符集：UTF-8 Unicode
+【运行环境】操作系统：window7 网页编码：UTF8 测试浏览器：谷歌、搜狗浏览器
+【服务器环境】PHP版本：5.4.45 文件上传限制800M： Web服务器：Apache
